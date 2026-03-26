@@ -66,3 +66,5 @@ console.log(
 );
 console.log("Out 2: ", longestCommonPrefix(["dog", "racecar", "car"]));
 console.log("Out 3: ", longestCommonPrefix(["car", "cir"]));
+
+// My submission: https://leetcode.com/problems/longest-common-prefix/submissions/1959971493/?envType=problem-list-v2&envId=array
