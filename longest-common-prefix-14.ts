@@ -68,3 +68,23 @@ console.log("Out 2: ", longestCommonPrefix(["dog", "racecar", "car"]));
 console.log("Out 3: ", longestCommonPrefix(["car", "cir"]));
 
 // My submission: https://leetcode.com/problems/longest-common-prefix/submissions/1959971493/?envType=problem-list-v2&envId=array
+
+/*
+Good Solution:
+
+function longestCommonPrefix(strs: string[]): string {
+    let prefix = strs[0];
+
+    for (let i = 1; i < strs.length; i++) {
+        const currentWord = strs[i];
+
+        while (!currentWord.startsWith(prefix)) {
+            prefix = prefix.slice(0, -1);
+
+            if (prefix === "") return "";
+        }
+    }
+
+    return prefix;
+}
+*/
