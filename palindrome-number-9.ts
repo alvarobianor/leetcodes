@@ -28,6 +28,25 @@ Constraints:
 Follow up: Could you solve it without converting the integer to a string?
 */
 
-function isPalindrome(x: number): boolean {
-  return false;
+function isPalindrome(number: number): boolean {
+  if (number < -(2 ** 31) || number > 2 ** 31 - 1) {
+    return false;
+  }
+
+  let invertedNumber = 0;
+  let startNumber = number;
+
+  while (startNumber > 0) {
+    const rest = Math.floor(startNumber % 10);
+
+    invertedNumber = invertedNumber * 10 + rest;
+
+    startNumber = Math.floor(startNumber / 10);
+  }
+
+  return invertedNumber === number;
 }
+
+console.log(isPalindrome(122)); // false
+console.log(isPalindrome(12121)); // true
+console.log(isPalindrome(-121)); // false
