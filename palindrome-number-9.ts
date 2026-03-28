@@ -50,3 +50,5 @@ function isPalindrome(number: number): boolean {
 console.log(isPalindrome(122)); // false
 console.log(isPalindrome(12121)); // true
 console.log(isPalindrome(-121)); // false
+
+// My submission: https://leetcode.com/problems/palindrome-number/submissions/1962260553
