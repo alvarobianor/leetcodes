@@ -28,5 +28,60 @@
 // -104 <= target <= 104
 
 function search(nums: number[], target: number): number {
-  return 0;
+  if (nums.length < 1 && nums.length > 5000) {
+    return -1;
+  }
+
+  return -1;
 }
+
+// console.log(search([3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2], 0));
+console.log(search([9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8], 1));
+// console.log(search([2, 3, 4, 5, 6, 0, 1], 0));
+
+// function search(nums: number[], target: number): number {
+//   if (nums.length < 1 && nums.length > 5000) {
+//     return -1;
+//   }
+
+//   let values = nums;
+//   let position = -2;
+//   let rest = 0;
+
+//   while (position == -2) {
+//     if (values.length == 0) {
+//       position = -1;
+//     }
+
+//     let mid = Math.floor(values.length / 2);
+//     console.log(
+//       "values -> ",
+//       values,
+//       "mid -> ",
+//       values[mid],
+//       "target -> ",
+//       target,
+//     );
+
+//     if (target == values[mid]) {
+//       position = mid + rest;
+//     }
+
+//     let left = 0;
+
+//     let right = values.length - 1;
+
+//     if (values[0] <= values[mid] && values[mid] <= target) {
+//       values = values.slice(left, mid);
+//     } else if (values[mid] <= values[right] && values[mid] <= target) {
+//       values = values.slice(left, mid);
+//     } else if (values[mid] <= values[right] && values[mid] > target) {
+//       values = values.slice(left, mid);
+//     } else {
+//       values = values.slice(mid, right);
+//       rest += mid;
+//     }
+//   }
+
+//   return position;
+// }
