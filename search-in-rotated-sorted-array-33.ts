@@ -60,7 +60,7 @@ function search(nums: number[], target: number): number {
   return -1;
 }
 
-const nums = [9, 0, 2, 3, 4, 5];
+const nums = [7, 9, 0, 2, 3, 4, 5];
 let success = true;
 for (const num of nums) {
   const result = search(nums, num);
