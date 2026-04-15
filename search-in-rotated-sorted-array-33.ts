@@ -40,7 +40,6 @@ function search(nums: number[], target: number): number {
     let mid = Math.floor((l + r) / 2);
 
     if (target == nums[mid]) {
-      console.log(`found -> ${mid} target -> ${target}`);
       return mid;
     }
 
