@@ -28,16 +28,15 @@
 // -104 <= target <= 104
 
 function search(nums: number[], target: number): number {
-  let position = -1;
-  if (nums.length < 1 && nums.length > 5000) {
-    return position;
+  if (nums.length < 1 || nums.length > 5000) {
+    return -1;
   }
 
   let l = 0;
   let r = nums.length - 1;
 
   while (l <= r) {
-    let mid = Math.floor((l + r) / 2);
+    let mid = (l + r) >> 1;
 
     if (target == nums[mid]) {
       return mid;
@@ -58,10 +57,10 @@ function search(nums: number[], target: number): number {
     }
   }
 
-  return position;
+  return -1;
 }
 
-const nums = [2, 3, 4, 5, 6, 0, 1];
+const nums = [9, 0, 2, 3, 4, 5];
 let success = true;
 for (const num in nums) {
   const result = search(nums, Number(num));
