@@ -39,7 +39,10 @@ function search(nums: number[], target: number): number {
   while (l <= r) {
     let mid = Math.floor((l + r) / 2);
 
-    if (target == nums[mid]) return mid;
+    if (target == nums[mid]) {
+      console.log(`found -> ${mid} target -> ${target}`);
+      return mid;
+    }
 
     console.log(
       `------------------------------------------------------------------------------------------------------------------------------------------------------\nAi o array -> ${nums.slice(l, r + 1)} -> l = ${nums[l]}, mid = ${nums[mid]}, r = ${nums[r]} ||| target = ${target}\n------------------------------------------------------------------------------------------------------------------------------------------------------`,
@@ -54,21 +57,33 @@ function search(nums: number[], target: number): number {
         console.log("1:2");
       }
     } else {
-      if (target > nums[mid] || target <= nums[r]) {
-        r = mid - 1;
+      if (target > nums[mid] || (target <= nums[r] && target < nums[l])) {
+        l = mid + 1;
         console.log("2:1");
       } else {
-        l = mid + 1;
+        r = mid - 1;
         console.log("2:2");
       }
     }
   }
 
+  console.log(`not found -> ${target}`);
   return position;
 }
 
 // console.log(search([3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2], 0));
-console.log(search([9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8], 3));
+
+const nums = [2, 3, 4, 5, 6, 0, 1];
+let success = true;
+for (const num in nums) {
+  const result = search(nums, Number(num));
+  if (result === -1) {
+    success = false;
+  }
+}
+
+console.log(success);
+
 // console.log(search([2, 3, 4, 5, 6, 0, 1], 0));
 
 // function search(nums: number[], target: number): number {
