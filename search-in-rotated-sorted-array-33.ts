@@ -44,30 +44,30 @@ function search(nums: number[], target: number): number {
       return mid;
     }
 
-    console.log(
-      `------------------------------------------------------------------------------------------------------------------------------------------------------\nAi o array -> ${nums.slice(l, r + 1)} -> l = ${nums[l]}, mid = ${nums[mid]}, r = ${nums[r]} ||| target = ${target}\n------------------------------------------------------------------------------------------------------------------------------------------------------`,
-    );
+    // console.log(
+    //   `------------------------------------------------------------------------------------------------------------------------------------------------------\nAi o array -> ${nums.slice(l, r + 1)} -> l = ${nums[l]}, mid = ${nums[mid]}, r = ${nums[r]} ||| target = ${target}\n------------------------------------------------------------------------------------------------------------------------------------------------------`,
+    // );
 
     if (nums[mid] < nums[l]) {
       if (target < nums[mid] || target >= nums[l]) {
         r = mid - 1;
-        console.log("1:1");
+        // console.log("1:1");
       } else {
         l = mid + 1;
-        console.log("1:2");
+        // console.log("1:2");
       }
     } else {
       if (target > nums[mid] || (target <= nums[r] && target < nums[l])) {
         l = mid + 1;
-        console.log("2:1");
+        // console.log("2:1");
       } else {
         r = mid - 1;
-        console.log("2:2");
+        // console.log("2:2");
       }
     }
   }
 
-  console.log(`not found -> ${target}`);
+  // console.log(`not found -> ${target}`);
   return position;
 }
 
