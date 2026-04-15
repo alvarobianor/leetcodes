@@ -62,8 +62,9 @@ function search(nums: number[], target: number): number {
 
 const nums = [9, 0, 2, 3, 4, 5];
 let success = true;
-for (const num in nums) {
-  const result = search(nums, Number(num));
+for (const num of nums) {
+  const result = search(nums, num);
+  console.log(result, num);
   if (result === -1) {
     success = false;
   }
