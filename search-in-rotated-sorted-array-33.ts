@@ -44,34 +44,23 @@ function search(nums: number[], target: number): number {
       return mid;
     }
 
-    // console.log(
-    //   `------------------------------------------------------------------------------------------------------------------------------------------------------\nAi o array -> ${nums.slice(l, r + 1)} -> l = ${nums[l]}, mid = ${nums[mid]}, r = ${nums[r]} ||| target = ${target}\n------------------------------------------------------------------------------------------------------------------------------------------------------`,
-    // );
-
     if (nums[mid] < nums[l]) {
       if (target < nums[mid] || target >= nums[l]) {
         r = mid - 1;
-        // console.log("1:1");
       } else {
         l = mid + 1;
-        // console.log("1:2");
       }
     } else {
       if (target > nums[mid] || (target <= nums[r] && target < nums[l])) {
         l = mid + 1;
-        // console.log("2:1");
       } else {
         r = mid - 1;
-        // console.log("2:2");
       }
     }
   }
 
-  // console.log(`not found -> ${target}`);
   return position;
 }
-
-// console.log(search([3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2], 0));
 
 const nums = [2, 3, 4, 5, 6, 0, 1];
 let success = true;
@@ -83,52 +72,3 @@ for (const num in nums) {
 }
 
 console.log(success);
-
-// console.log(search([2, 3, 4, 5, 6, 0, 1], 0));
-
-// function search(nums: number[], target: number): number {
-//   if (nums.length < 1 && nums.length > 5000) {
-//     return -1;
-//   }
-
-//   let values = nums;
-//   let position = -2;
-//   let rest = 0;
-
-//   while (position == -2) {
-//     if (values.length == 0) {
-//       position = -1;
-//     }
-
-//     let mid = Math.floor(values.length / 2);
-//     console.log(
-//       "values -> ",
-//       values,
-//       "mid -> ",
-//       values[mid],
-//       "target -> ",
-//       target,
-//     );
-
-//     if (target == values[mid]) {
-//       position = mid + rest;
-//     }
-
-//     let left = 0;
-
-//     let right = values.length - 1;
-
-//     if (values[0] <= values[mid] && values[mid] <= target) {
-//       values = values.slice(left, mid);
-//     } else if (values[mid] <= values[right] && values[mid] <= target) {
-//       values = values.slice(left, mid);
-//     } else if (values[mid] <= values[right] && values[mid] > target) {
-//       values = values.slice(left, mid);
-//     } else {
-//       values = values.slice(mid, right);
-//       rest += mid;
-//     }
-//   }
-
-//   return position;
-// }
