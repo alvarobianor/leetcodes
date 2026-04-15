@@ -32,55 +32,43 @@ function search(nums: number[], target: number): number {
   if (nums.length < 1 && nums.length > 5000) {
     return position;
   }
-  let rotatedArray = [...nums];
 
-  let left: number[], right: number[];
+  let l = 0;
+  let r = nums.length - 1;
 
-  left = [];
-  right = [];
-  console.log(target);
-  console.log(rotatedArray);
+  while (l <= r) {
+    let mid = Math.floor((l + r) / 2);
 
-  let c = 9;
+    if (target == nums[mid]) return mid;
 
-  while (rotatedArray.length !== 0 && rotatedArray.length !== 1) {
-    let mid = Math.round(rotatedArray.length / 2);
-
-    if (rotatedArray[mid] === target) {
-      position += mid;
-      rotatedArray = [];
-    }
     console.log(
-      "\nelemento mid -> ",
-      rotatedArray[mid],
-      " mid -> ",
-      mid,
-      " tamanho do array -> ",
-      rotatedArray.length,
+      `------------------------------------------------------------------------------------------------------------------------------------------------------\nAi o array -> ${nums.slice(l, r + 1)} -> l = ${nums[l]}, mid = ${nums[mid]}, r = ${nums[r]} ||| target = ${target}\n------------------------------------------------------------------------------------------------------------------------------------------------------`,
     );
 
-    left = rotatedArray.slice(0, mid);
-    right = rotatedArray.slice(mid, rotatedArray.length);
-
-    console.log("\nleft, right -> ", left, right);
-
-    if (left[0] > target && left[left.length - 1] > target) {
-      rotatedArray = left;
+    if (nums[mid] < nums[l]) {
+      if (target < nums[mid] || target >= nums[l]) {
+        r = mid - 1;
+        console.log("1:1");
+      } else {
+        l = mid + 1;
+        console.log("1:2");
+      }
     } else {
-      rotatedArray = right;
+      if (target > nums[mid] || target <= nums[r]) {
+        r = mid - 1;
+        console.log("2:1");
+      } else {
+        l = mid + 1;
+        console.log("2:2");
+      }
     }
-    --c;
-    console.log("\n------------------------------------- target -> ", target);
-    console.log("\nrotatedArray -> ", rotatedArray);
   }
-
-  // console.log(left, right);
 
   return position;
 }
 
 // console.log(search([3, 4, 5, 6, 7, 8, 9, 10, 0, 1, 2], 0));
-console.log(search([9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8], 2));
+console.log(search([9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8], 3));
 // console.log(search([2, 3, 4, 5, 6, 0, 1], 0));
 
 // function search(nums: number[], target: number): number {
