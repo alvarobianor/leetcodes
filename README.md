@@ -84,7 +84,9 @@ As soluções estão na raiz e seguem uma convenção de nomes clara:
 
 | # | Problem / Problema | Difficulty / Dificuldade | Solution / Solução |
 |---|---|---|---|
+| 9 | Palindrome Number | 🟢 Easy | [Solution](palindrome-number-9.ts) |
 | 14 | Longest Common Prefix | 🟢 Easy | [Solution](longest-common-prefix-14.ts) |
+| 33 | Search in Rotated Sorted Array | 🟡 Medium | [Solution](search-in-rotated-sorted-array-33.ts) |
 
 ---
 
