@@ -46,21 +46,17 @@ function isValid(s: string): boolean {
     return false;
   }
 
-  const ob1 = "(";
-  const ob2 = "[";
-  const ob3 = "{";
-  const cb1 = ")";
-  const cb2 = "]";
-  const cb3 = "}";
+  const ob = ["(", "[", "{"];
+  const cb = [")", "]", "}"];
 
   const openBrackets: string[] = [];
 
   for (const ele of s) {
-    if (ele === ob1 || ele === ob2 || ele === ob3) {
+    if (ob.includes(ele)) {
       openBrackets.push(ele);
       continue;
     }
-    if (ele === cb1 || ele === cb2 || ele === cb3) {
+    if (cb.includes(ele)) {
       const result = `${openBrackets[openBrackets.length - 1]}${ele}`;
 
       if (result !== "()" && result !== "[]" && result !== "{}") {
