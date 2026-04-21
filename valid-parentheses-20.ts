@@ -77,3 +77,5 @@ function isValid(s: string): boolean {
 const s = "([[[]{}]])";
 
 console.log(`string -> ${s} || result -> ${isValid(s)}`);
+
+// link of leetcode -> https://leetcode.com/problems/valid-parentheses/
