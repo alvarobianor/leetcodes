@@ -86,7 +86,9 @@ As soluções estão na raiz e seguem uma convenção de nomes clara:
 |---|---|---|---|
 | 9 | Palindrome Number | 🟢 Easy | [Solution](palindrome-number-9.ts) |
 | 14 | Longest Common Prefix | 🟢 Easy | [Solution](longest-common-prefix-14.ts) |
+| 20 | Valid Parentheses | 🟢 Easy | [Solution](valid-parentheses-20.ts) |
 | 33 | Search in Rotated Sorted Array | 🟡 Medium | [Solution](search-in-rotated-sorted-array-33.ts) |
+| 556 | Next Greater Element III | 🟡 Medium | [Solution](next-greater-element-iii-556.ts) |
 
 ---
 
