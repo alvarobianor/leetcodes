@@ -59,35 +59,26 @@ function isValid(s: string): boolean {
   for (const ele of s) {
     if (ele === ob1 || ele === ob2 || ele === ob3) {
       openBrackets.push(ele);
-      // continue;
+      continue;
     }
     if (ele === cb1 || ele === cb2 || ele === cb3) {
-      console.log("ELEEEEEEEEE -> ", ele);
+      const result = `${openBrackets[openBrackets.length - 1]}${ele}`;
 
-      closeBrackets.push(ele);
+      if (result !== "()" && result !== "[]" && result !== "{}") {
+        return false;
+      }
+
+      openBrackets.pop();
     }
   }
 
-  if (openBrackets.length !== closeBrackets.length) {
+  if (openBrackets.length > 0) {
     return false;
-  }
-
-  console.log(
-    `OB -> [${openBrackets}] || CB -> [${closeBrackets}] || tamain -> ${openBrackets.length} + ${closeBrackets.length}`,
-  );
-
-  for (let i = openBrackets.length - 1; i >= 0; i--) {
-    const result = `${openBrackets[i]}${closeBrackets[i]}`;
-
-    console.log(`result -> ${result} || i -> ${i}`);
-
-    if (result !== "()" && result !== "[]" && result !== "{}") {
-      return false;
-    }
   }
 
   return true;
 }
-const s = "(]";
+
+const s = "([[[]{}]])";
 
 console.log(`string -> ${s} || result -> ${isValid(s)}`);
