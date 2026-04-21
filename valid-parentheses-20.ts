@@ -54,14 +54,16 @@ function isValid(s: string): boolean {
   const cb3 = "}";
 
   const openBrackets: string[] = [];
-  const closeBrackets: string[] = [];
+  let closeBrackets: string[] = [];
 
   for (const ele of s) {
     if (ele === ob1 || ele === ob2 || ele === ob3) {
       openBrackets.push(ele);
-      continue;
+      // continue;
     }
     if (ele === cb1 || ele === cb2 || ele === cb3) {
+      console.log("ELEEEEEEEEE -> ", ele);
+
       closeBrackets.push(ele);
     }
   }
@@ -70,9 +72,11 @@ function isValid(s: string): boolean {
     return false;
   }
 
-  console.log(`OB -> ${openBrackets} || CB -> ${closeBrackets}`);
+  console.log(
+    `OB -> [${openBrackets}] || CB -> [${closeBrackets}] || tamain -> ${openBrackets.length} + ${closeBrackets.length}`,
+  );
 
-  for (let i = openBrackets.length - 1; i > 0; i--) {
+  for (let i = openBrackets.length - 1; i >= 0; i--) {
     const result = `${openBrackets[i]}${closeBrackets[i]}`;
 
     console.log(`result -> ${result} || i -> ${i}`);
@@ -84,6 +88,6 @@ function isValid(s: string): boolean {
 
   return true;
 }
-const s = "()[[]]";
+const s = "(]";
 
 console.log(`string -> ${s} || result -> ${isValid(s)}`);
