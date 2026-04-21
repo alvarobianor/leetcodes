@@ -54,7 +54,6 @@ function isValid(s: string): boolean {
   const cb3 = "}";
 
   const openBrackets: string[] = [];
-  let closeBrackets: string[] = [];
 
   for (const ele of s) {
     if (ele === ob1 || ele === ob2 || ele === ob3) {
