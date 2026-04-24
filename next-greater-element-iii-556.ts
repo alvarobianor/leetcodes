@@ -28,7 +28,13 @@ function nextGreaterElement(n: number): number {
     iterator = Math.floor(iterator / 10);
   }
 
-  const sortedList = list.sort((a, b) => a - b);
+  let sortedList = list.sort((a, b) => a - b);
+
+  while (sortedList[0] == 0) {
+    const first = sortedList[0];
+
+    sortedList = [...sortedList.slice(1, sortedList.length), first];
+  }
 
   let result = parseInt([...sortedList].join(""));
 
@@ -58,7 +64,7 @@ function nextGreaterElement(n: number): number {
   return result;
 }
 
-const n = 1111;
+const n = 101;
 
 console.log(`number -> ${n} nextGreaterElement ->${nextGreaterElement(n)}`);
 
