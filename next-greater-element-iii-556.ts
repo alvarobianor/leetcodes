@@ -64,7 +64,7 @@ function nextGreaterElement(n: number): number {
   return result;
 }
 
-const n = 101;
+const n = 230241;
 
 console.log(`number -> ${n} nextGreaterElement ->${nextGreaterElement(n)}`);
 
