@@ -67,7 +67,9 @@ function nextGreaterElement(n: number): number {
 
 const n = 230241;
 
-console.log(`number -> ${n} nextGreaterElement ->${nextGreaterElement(n)}`);
+console.log(
+  `number -> ${n} nextGreaterElement ->${nextGreaterElement(n)} expected -> ${230412}`,
+);
 
 // const lll = [0, 1, 2, 3, 4, 5, 6, 7];
 // const number = lll.pop();
