@@ -37,6 +37,7 @@ function nextGreaterElement(n: number): number {
   }
 
   let result = parseInt([...sortedList].join(""));
+  console.log("result -> ", result);
 
   if (result < n) {
     return -1;
