@@ -16,7 +16,7 @@
 // 1 <= n <= 231 - 1
 
 function nextGreaterElement(n: number): number {
-  if (n <= 0 || n > 2 ** 31 - 1) return -1;
+  if (n <= 9 || n > 2 ** 31 - 1) return -1;
 
   let iterator = n;
 
@@ -28,15 +28,41 @@ function nextGreaterElement(n: number): number {
     iterator = Math.floor(iterator / 10);
   }
 
-  const result = parseInt(list.sort((a, b) => a - b).join(""));
+  const sortedList = list.sort((a, b) => a - b);
+
+  let result = parseInt([...sortedList].join(""));
 
   if (result < n) {
+    return -1;
+  }
+
+  if (result === n) {
+    let last = sortedList.pop();
+    let index = sortedList.length - 1;
+
+    while (index >= 0 && last != undefined) {
+      if (sortedList[index] < last) {
+        return parseInt(
+          [
+            ...sortedList.slice(0, index),
+            last,
+            ...sortedList.slice(index, sortedList.length),
+          ].join(""),
+        );
+      }
+      index--;
+    }
     return -1;
   }
 
   return result;
 }
 
-const n = 12;
+const n = 1111;
 
-console.log(`number -> ${n} nextGreaterElement ->${nextGreaterElement(12)}`);
+console.log(`number -> ${n} nextGreaterElement ->${nextGreaterElement(n)}`);
+
+// const lll = [0, 1, 2, 3, 4, 5, 6, 7];
+// const number = lll.pop();
+
+// console.log([...lll.slice(0, 3), number, ...lll.slice(3, lll.length)]);
